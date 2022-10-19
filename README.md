@@ -13,5 +13,5 @@
 ## dbconnect's usage
 ```python
 import dbconnect
-data = dbconnect("kpi_1") # 其中kpi_1為資料表名稱
+data = dbconnect.select_all("kpi_1") # 其中kpi_1為資料表名稱，data裡面會得到那個資料表的全部資料，需要再做其他處理
 ```
