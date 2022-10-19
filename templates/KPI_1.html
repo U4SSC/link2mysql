@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <th>Country Name</th>
+        <th>Country Code</th>
+        <th>2010</th>
+        <th>2011</th>
+        <th>2012</th>
+        <th>2013</th>
+        <th>2014</th>
+    </tr>
+    {% for Country_Name, Country_Code, _2010, _2011, _2012, _2013, _2014 in data %}
+    <tr>
+        <th>{{Country_Name}}</th>
+        <th>{{Country_Code}}</th>
+        <th>{{_2010}}</th>
+        <th>{{_2011}}</th>
+        <th>{{_2012}}</th>
+        <th>{{_2013}}</th>
+        <th>{{_2014}}</th>
+    </tr>
+    {% endfor %}
+</table>
