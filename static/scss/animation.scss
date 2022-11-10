@@ -1,0 +1,24 @@
+@keyframes xmove_right {
+    0% {background-position: 0% 0%;}
+    100% {background-position: 100% 0%;}
+}
+@keyframes xmove_left {
+    0% {background-position: 100% 0%;}
+    100% {background-position: 0% 0%;}
+}
+@keyframes ymove_up {
+    0% {background-position: 0% 0%;}
+    100% {background-position: 0% 100%;}
+}
+@keyframes ymove_down {
+    0% {background-position: 0% 100%;}
+    100% {background-position: 0% 0%;}
+}
+@keyframes title_change {
+    0%{color: #000000;}
+    20%{color: #0b0b92;}
+    40%{color: #1444d3;}
+    60%{color: #5e6feb;}
+    80%{color: #4990f4;}
+    100%{color: #4775FF;}
+}

@@ -11,6 +11,10 @@ def home():
 def showDB():
     data = dbconnect.select_all("kpi_1")
     return render_template("KPI_1.html", data = data)
+
+@app.route("/index")
+def index():
+    return render_template("index.html")
     
 
 if __name__ == "__main__": # 如果以上程式執行
