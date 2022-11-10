@@ -1,0 +1,99 @@
+body {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.login {
+    position: fixed;
+    width: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: #fff;
+    background: gray;
+    border-radius: 10px;
+    padding: 70px;
+}
+
+.login i {
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+
+.login {
+    font-size: 16px;
+    padding: 7px;
+    border-radius: 4px;
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    transform-origin: 300px center;
+
+}
+
+.account {
+    position: relative;
+    width: 400px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-10%);
+    margin-bottom: 50px;
+}
+
+.account input {
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    border: none;
+    outline: none;
+    background-color: gray;
+}
+
+.account label {
+    position: absolute;
+    text-align: left;
+    color: white;
+    left: 0%;
+    bottom: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid white;
+}
+
+
+
+
+.account-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.account input:focus + .account-label .account-name, .account input:valid + .account-label .account-name{
+    transform: translateY(-110%);
+    color: yellow;
+    font-size: 14px;
+}
+
+
+
+button {
+    border: 0;
+    padding: 4px 8px;
+    margin: 20px auto;
+    font-size: 18px;
+    background: #fff;
+    color: #000;
+    border-radius: 4px;
+}
+
+button:hover {outline: gray solid thin;}
