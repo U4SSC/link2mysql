@@ -16,21 +16,21 @@ def showDB():
 def login_page():
     return render_template("login.html")
 
-@app.route("/checkAuth", methods=['POST'])
+@app.route("/checkAuth", methods=['POST', 'GET'])
 def checkAuth():
     if request.method == "POST":
         # === check username & password ===
         if 1:
-            return redirect(url_for("admin/backend"))
+            return redirect("/admin/backend")
         # =================================
-    return redirect(url_for("login", fail = True))
+    return redirect("/login")
 
 @app.route("/admin/backend")
 def backend_page():
     # === check auth ===
     
     # ==================
-    return render_template("admin/backend_html")
+    return render_template("admin/backend.html")
 
 if __name__ == "__main__": # 如果以上程式執行
     app.run(debug=True) # 立刻啟動伺服器
