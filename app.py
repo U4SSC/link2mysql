@@ -7,6 +7,10 @@ app = Flask(__name__) # __name__ 代表目前執行的模組
 def index():
     return render_template("index.html")
 
+@app.route('/circle_world_plot_2014')
+def show():
+    return render_template('circle_world_plot_2014.html')
+
 @app.route("/KPI_1")
 def showDB():
     data = dbconnect.select_all("kpi_1")
