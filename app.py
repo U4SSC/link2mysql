@@ -1,7 +1,15 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, session
 import dbconnect
+import hashlib
+from datetime import timedelta
+import os
+
 
 app = Flask(__name__) # __name__ 代表目前執行的模組
+app.config['SECRET_KEY'] = os.urandom(24)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)
+
+
 
 @app.route("/") # 函式的裝置 (Decorator): 以函式為基礎，提供附加的功能
 def index():
@@ -20,11 +28,20 @@ def showDB():
 def login_page():
     return render_template("login.html")
 
+@app.route("/logout")
+def logout():
+    session["username"] = False
+    return redirect("/")
+
 @app.route("/checkAuth", methods=['POST', 'GET'])
 def checkAuth():
     if request.method == "POST":
         # === check username & password ===
-        if 1:
+        username = request.form['username']
+        password = request.form['password']
+        row = dbconnect.find_user(username)
+        if row["password"] == hashlib.sha512(str(password).encode("utf-8")).hexdigest():
+            session["username"] = username
             return redirect("/admin/backend")
         # =================================
     return redirect("/login")
@@ -32,9 +49,11 @@ def checkAuth():
 @app.route("/admin/backend")
 def backend_page():
     # === check auth ===
-    
+    if session.get("username") == "admin":
+        return render_template("admin/backend.html")
     # ==================
-    return render_template("admin/backend.html")
+    return redirect("/")
+    
 
 if __name__ == "__main__": # 如果以上程式執行
     app.run(debug=True) # 立刻啟動伺服器
