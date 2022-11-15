@@ -13,7 +13,7 @@
     <div class="list_buttons">
         <a href="#top">Top</a>
         <a href="#kpi_1">KPI 1</a>
-        <a href="#reference">Reference</a>
+        <!-- <a href="#reference">Reference</a> -->
         <a href="#aboutus">About us</a>
     </div>
     <div id="top" class="area">
@@ -25,23 +25,42 @@
             </div>
         </div>
     </div>
-    <div id="kpi_1" class="area container">
-        <div class="row justify-content-center">
-            <div class="col-7">
-                <iframe src="/circle_world_plot_2014" style="width: 100%; height: 40rem;"></iframe>
+    <div id="kpi_1" class="area container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <iframe src="./circle_world_plot_2014" style="width: 100%; height: 100vh;"></iframe>
                 <!-- <img src="img/test.jpg" alt="test"> -->
             </div>
-            <div class="col-4 introduce">
-                組長頂樓好冷，風好大<br/>
-                我真的交不出需求文件了
+            <div class="col-4 introduce py-5">
+                <span>左圖為2014年全世界青年失業率地圖</span>
+                <br/>
+                <br/>
+                <span>下圖為2014年全世界青年失業百分比地圖</span>
+                <br/>
+                <br/>
+                <span>下下圖為2014年全世界青年失業率散布圖</span>
             </div>
         </div>
     </div>
-    <div id="reference" class="area">
+    <div class="area container-fluid">
+        <div class="row justufy">
+            <div class="col-10">
+                <iframe src="/flat_world_plot_2014" style="width: 100%; height: 90vh;"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="area container-fluid">
+        <div class="row justufy">
+            <div class="col-10">
+                <iframe src="/scatter_plot_2014" style="width: 100%; height: 90vh;"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="reference" class="area">
         <div class="row justify-content-center align-item-center mx-0">
             <div class="col">Reference</div>
         </div>
-    </div>
+    </div> -->
     <div id="aboutus" class="area">
         <div id="info" class="container-fluid">
             <div class="row justify-content-center mx-0">
