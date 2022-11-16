@@ -1,0 +1,82 @@
+html { font-size: calc(1em + 1vw); }
+body{
+    font-family: "思源黑體,Helvetica Neue,Helvetica,Arial,Hiragino Sans GB";
+}
+
+.wh64{
+    width: 64px;
+    height: 64px;
+    border-radius:50%;
+}
+.mt15 {
+    margin-top: 15px;
+}
+.ml20{
+    margin-left:20px;
+}
+.mg0{
+    margin: 0;
+}
+.pd0{
+    padding: 0;
+}
+.fz16{
+    font-size: 16px;
+}
+lable {
+    font-weight: bold;
+}
+
+/*navbor*/
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 18px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+@media screen and (max-width: 767px) {
+    .tq-navbar-default .navbar-nav>li>a {
+        font-size: 16px;
+        color: #666;
+        height: 50px;
+        line-height: 25px;
+    }
+    .tq-navbar-default .navbar-nav>li>a:hover {
+        color: #666;
+        background-color: #eee;
+    }
+}
+@media screen and (max-width: 971px){
+    .navbar-collapse.collapse {
+        font-size: 12px;
+    }
+}
+
+button.navbar-toggle {
+    margin-top: 8px;
+}
+
+/*main*/
+#admin-nav span.glyphicon {
+    margin-right: 7px;
+}
+#main span.glyphicon {
+    margin-right: 7px;
+}
+#main table.table.table-hover {
+    margin-top: 11px;
+}
+#main .state p{
+    margin: 0 0 5px;
+}
+#main .page-header{
+    margin-top: 0;
+}
+
