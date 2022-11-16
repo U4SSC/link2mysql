@@ -1,30 +1,146 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8"/>
+    <title>後端管理介面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-     <!--
-    <link rel="stylesheet" href="../css/main.css"> 
-    <script src="../bootstrap/js/bootstrap.js"></script> -->
-    <script src="../js/main.js"></script>
-    <title>後端主介面</title>
+    <style>
+
+    </style>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/backend.css">
+
 </head>
 <body>
-    <div id="top" class="area">
-        <div class="container py-5">
-                <h1><span class="web_title p-1">後端主介面我不會排版</span></h1>
+    <!--navbor-->
+    <nav class="navbar navbar-default" id="admin-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="backend.html" class="navbar-brand">後台管理介面</a>
+            </div>
+    
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active">
+                        <a href="backend.html">
+                            <span class="glyphicon glyphicon-user"></span>
+                            檔案管理
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            admin
+                        </a>
+                    </li>
+                    <li><a href="#"><span class="glyphicon glyphicon-off"></span>登出</a></li>
+                </ul>
+    
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="list-group">
+                        <a href="backend.html" class="list-group-item active">顯示目前已有的檔案</a>
+                        <a role="button" data-toggle="modal" data-target="#myModal" class="list-group-item">增加檔案</a>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="page-header">
+                        <h1 class="mg0 pd0 fz16">檔案列表</h1>
+                    </div>
+                    <div>
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>檔案名稱</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>2020/11/14.xlxs</td>
+                                <td>
+                                    <div role="presentation" class="dropdown">
+                                        
+                                        <button class="btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                            編輯
+                                        </button>
+                                        <button class="btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                            預覽
+                                        </button>
+                                        <button class="btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                            刪除
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                           
+                            </tbody>
+                        </table>
+                        <nav class="pull-right">
+                            <ul class="pagination">
+                                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--增加檔案-->
+<section id="user-add">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">增加檔案</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="input-group mb-3">
+                            <lable for="add-file">檔案上傳</lable>
+                            <input type="file" class="form-control" id="inp-add-1">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                    <button type="button" class="btn btn-primary">上傳</button>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupFile01">上傳</label>
-        <input type="file" class="form-control" id="inputGroupFile01">
-    </div>
-    <button type="button" class="btn btn-light">刪除</button>
+</section>
 
 
-    <br/>
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
 </body>
-</html>
 
+</html>
