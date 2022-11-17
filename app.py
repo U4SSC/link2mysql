@@ -41,7 +41,7 @@ def logout():
     session["username"] = False
     return redirect("/")
 
-@app.route("/checkAuth", methods=['POST', 'GET'])
+@app.route("/checkAuth", methods=['POST', 'GET']) // check auth
 def checkAuth():
     if request.method == "POST":
         # === check username & password ===
