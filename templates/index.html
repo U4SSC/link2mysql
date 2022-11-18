@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap/css/fullpage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/aos.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
 <title>永續指標分析與呈現</title>
 
@@ -20,95 +20,79 @@
     <a href="#aboutus">About us</a>
 </div>
 
-<div id="content">
-    <div id="top" class="area section">
-        <div class="row container mx-0">
-            <!-- <div class="col-4 text-center web_title py-2 m-3">
-                <a href="index.html">
-                    <h1><span class="text-center align-middle p-1">SDG11 KPI</span></h1>
-                </a>
-            </div> -->
+<div id="top">
+    <div class="row container mx-0">
+        <div class="col-4 text-center web_title py-2 m-3">
+            <a href="index.html">
+                <h1><span class="text-center align-middle p-1">SDG11 KPI</span></h1>
+            </a>
         </div>
     </div>
-    <div id="kpi_1" class="area section container-fluid">
-        <div class="row">
-            <div class="col-6">
-                <iframe src="./circle_world_plot_2014" style="width: 100%; height: 100vh;"></iframe>
-                <!-- <img src="img/test.jpg" alt="test"> -->
-            </div>
-            <div class="col-4 introduce py-5">
-                <span>左圖為2014年全世界青年失業率地圖</span>
-                <br/>
-                <br/>
-                <span>下圖為2014年全世界青年失業百分比地圖</span>
-                <br/>
-                <br/>
-                <span>下下圖為2014年全世界青年失業率散布圖</span>
-            </div>
+</div>
+<div id="kpi_1" class="container-fluid" data-aos="fade-up"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="500"
+    data-aos-easing="ease-in-out">
+    <div class="row justify-content-center align-item-center">
+        <div class="col-6" data-aos="fade-up">
+            <iframe src="./circle_world_plot_2014" style="width: 100%; height: 80vh;"></iframe>
+            <!-- <img src="img/test.jpg" alt="test"> -->
         </div>
     </div>
-    <div class="area section container-fluid">
-        <div class="row justufy">
-            <div class="col-10">
-                <iframe src="/flat_world_plot_2014" style="width: 100%; height: 100vh;"></iframe>
-            </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-left mx-0">
+        <div class="col-7" data-aos="fade-up"
+            data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out">
+            <iframe src="/flat_world_plot_2014" style="width: 100%; height: 70vh;"></iframe>
         </div>
-    </div>
-    <div class="area section container-fluid">
-        <div class="row">
-            <div class="col-10">
-                <iframe src="/scatter_plot_2014" style="width: 100%; height: 100vh;"></iframe>
-            </div>
+        <div class="offset-4 col-7" data-aos="fade-up"
+            data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out">
+            <iframe src="/scatter_plot_2014" style="width: 100%; height: 70vh;"></iframe>
         </div>
-    </div>
-    <div class="area section container-fluid">
-        <div class="row">
+        <div id="linechart" class="col-10">
             <a class="nav-link collapsed" href="#Asia" data-bs-toggle="collapse" aria-expanded="true" aria-controls="Asia">
                 <span>亞洲</span>
             </a>
-
             <div id="Asia" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
+                    
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- <div id="reference" class="area section">
-        <div class="row justify-content-center align-item-center mx-0">
-            <div class="col">Reference</div>
-        </div>
-    </div> -->
-    <div id="aboutus" class="area section">
-        <div id="info" class="container-fluid">
-            <div class="row justify-content-center mx-0">
-                <span class="text-center m-4">ABOUT US</span>
-                <p class="text-center mt-5">
-                    Contact email :office2022@cs.ccu.edu.tw<br/>
-                    Address : 621301 嘉義縣民雄鄉大學路168號
-                </p>
             </div>
         </div>
     </div>
 </div>
 
+<div id="aboutus" class="row justify-content-center mx-0">
+    <div class="wave one"></div>
+    <div class="wave two"></div>
+    <div class="wave three"></div>
+    <div id="info" class="container-fluid">
+        <div class="row justify-content-center mx-0">
+            <span class="text-center m-4">ABOUT US</span>
+            <p class="text-center mt-5">
+                Contact email :office2022@cs.ccu.edu.tw<br/>
+                Address : 621301 嘉義縣民雄鄉大學路168號
+            </p>
+        </div>
+    </div>
+</div>
+
 <script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename = 'js/aos.js') }}"></script>
 <script src="{{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
-<script src="{{ url_for('static', filename = 'js/fullpage.min.js') }}"></script>
 <script type="text/javascript">
-    $(function(){
-        $('#content').fullpage({
-            // autoScrolling:true,
-	        // scrollHorizontally: true
-        });
-    });
-    // $(document).ready(function(){
+    AOS.init();
+    $(document).ready(function(){
 
-    // })
-
-        
+    })  
 </script>
 
 </body>

@@ -3,13 +3,12 @@
 @import "animation.css";
 
 body{
-    position: relative;
-    /* background-color: #E4FAF2; */
-    background: linear-gradient(to bottom, #E4FAF2 0%, #FCEB66 50%, #ff9e17 70%, #8b560b 80%, #120801 95%);
+    background-color: #fbe2b5;
+    /* background: linear-gradient(to bottom, #EBEBDD, #FFFFBF, #F1F18C, #F6FF50, #e78e2f);
     background-size: 100% 100%;
-    /* animation: ymove 2s linear infinite; */
-    /* -webkit-animation: ymove 2s linear infinite; */
-    /* -moz-animation: ymove 2s linear infinite; */
+    animation: ymove_up 5s linear infinite;
+    -webkit-animation: ymove_up 5s linear infinite;
+    -moz-animation: ymove_up 5s linear infinite; */
 }
 a:link {
     color: #000000;

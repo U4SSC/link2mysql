@@ -19,10 +19,6 @@
   transition-duration: 0.4s;
 }
 
-.area {
-  height: 100vh;
-}
-
 .web_title {
   position: relative;
   z-index: 0;
@@ -62,9 +58,8 @@
   transition-duration: 4s;
 }
 
-.choose_country{
-    height: 100vh;
-    border: 1px solid red;
+#top, #linechart {
+  height: 100vh;
 }
 
 #kpi_1 img {
@@ -72,20 +67,59 @@
   margin-top: 1rem;
 }
 
-#kpi_1 .introduce span {
-  font-size: 1.5rem;
+#linechart .nav-link {
+  display: inline-block;
+  background-color: #E4FAF2;
+}
+
+#aboutus {
+  height: 100vh;
+  width: 100%;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+#aboutus::after {
+  content: "";
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center top, #e78e2f, rgba(238, 221, 255, 0.3) 60%, rgba(238, 221, 255, 0) 100%);
+  z-index: 30;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave {
+  background: #fbb56a;
+  width: 120vw;
+  height: 120vmax;
+  border-radius: 42%;
+  opacity: 0.4;
+  position: absolute;
+  top: -190%;
+  left: 0%;
+  transform-origin: center;
+  -webkit-animation: drift 7s infinite linear;
+          animation: drift 7s infinite linear;
+}
+
+.wave.two {
+  -webkit-animation: drift 9s infinite linear;
+          animation: drift 9s infinite linear;
+}
+
+.wave.three {
+  -webkit-animation: drift 11s infinite linear;
+          animation: drift 11s infinite linear;
+  opacity: 0.1;
 }
 
 #info {
   position: absolute;
   bottom: 0;
-  height: 3 0vh;
-  border-top: 0.4rem solid #FFFFFF;
+  height: 30vh;
   color: #FFFFFF;
-}
-
-.stars {
-  -webkit-animation: rotate 60000ms linear infinite;
-          animation: rotate 60000ms linear infinite;
-  transform-origin: 100% 100%;
 }
