@@ -41,7 +41,7 @@ def logout():
     session["username"] = False
     return redirect("/")
 
-@app.route("/checkAuth", methods=['POST', 'GET']) // check auth
+@app.route("/checkAuth", methods=['POST', 'GET']) # check auth
 def checkAuth():
     if request.method == "POST":
         # === check username & password ===
@@ -53,6 +53,24 @@ def checkAuth():
             return redirect("/admin/backend")
         # =================================
     return redirect("/login")
+
+# =================================
+# 先檢查權限 -> 上傳 -> 讀取 -> 寫入資料庫
+
+@app.route('admin/submit', methods=['POST', 'GET'])
+def submit():
+    if session.get("username") == "admin":
+        # 上傳檔案
+        FILE = request.form['submission']
+        # 讀檔案
+        with open (FILE,"r") as f :
+            # 輸進資料庫
+            dbconnect.insert_data(f)
+            # LOAD f
+            # INFILE 
+            # INTO TABLE CSV 
+    return redirect("/")
+# =================================
 
 @app.route("/admin/backend")
 def backend_page():

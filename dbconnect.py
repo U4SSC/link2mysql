@@ -17,3 +17,12 @@ def find_user(username:str):
         sql = "SELECT * FROM `user` WHERE `username` = %s"
         cursor.execute(sql, username)
         return cursor.fetchone()
+
+def insert_data(tablename:str):
+     with conn.cursor() as cursor:
+        sql = "INSERT INTO`"+tablename+"`  VALUE  "
+        cursor.execute(sql)
+        return cursor.fetchall()
+
+
+
