@@ -9,7 +9,7 @@ import csv
 app = Flask(__name__) # __name__ 代表目前執行的模組
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)
-app.config['UPLOAD_FOLDER'] = "./csvdir"
+app.config['UPLOAD_FOLDER'] = "./upload"
 
 
 
