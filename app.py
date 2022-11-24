@@ -3,11 +3,13 @@ import dbconnect
 import hashlib
 from datetime import timedelta
 import os
+import csv 
 
 
 app = Flask(__name__) # __name__ 代表目前執行的模組
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)
+app.config['UPLOAD_FOLDER'] = "./csvdir"
 
 
 
@@ -54,7 +56,7 @@ def checkAuth():
         # =================================
     return redirect("/login")
 
-@app.route("/admin/backend")
+@app.route("/admin/backend") # web_path
 def backend_page():
     # === check auth ===
     if session.get("username") == "admin":
@@ -62,6 +64,22 @@ def backend_page():
     # ==================
     return redirect("/")
     
+#=============upload====================
+@app.route('/upload', methods=['POST', 'GET'])
+def upload():
+    if session.get("username") == "admin" and request.method == 'POST':
+        file = request.files['file']
+        fname = file.filename
+        savepath = os.path.join(app.config['UPLOAD_FOLDER'] , fname)
+        file.save( savepath )
+        with open( savepath , newline='') as csvfile:
+            data = list( csv.reader( csvfile ) )
+        dbconnect.delete_data( "kpi_1" )
+        dbconnect.insert_data( "kpi_1" , data )
+        os.unlink( savepath )
+        return redirect("/admin/backend")
+    return redirect("/")
+#==========================================
 
 if __name__ == "__main__": # 如果以上程式執行
     app.run(debug=True) # 立刻啟動伺服器
