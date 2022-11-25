@@ -58,13 +58,28 @@
   transition-duration: 4s;
 }
 
+.nav {
+  background-color: #FFFFFF;
+  height: 10rem;
+}
+
+.slogan {
+  font-size: 6rem;
+}
+.slogan span {
+  color: red;
+}
+
 #top, #linechart {
   height: 100vh;
 }
 
-#kpi_1 img {
-  max-width: 100%;
-  margin-top: 1rem;
+#top {
+  background-color: #E4FAF2;
+}
+
+#circle_world_img {
+  border-radius: 20%;
 }
 
 #linechart .nav-link {

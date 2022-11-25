@@ -21,27 +21,37 @@
 </div>
 
 <div id="top">
-    <div class="row container mx-0">
+    <div class="row container justify-content-left mx-0">
         <div class="col-4 text-center web_title py-2 m-3">
             <a href="index.html">
                 <h1><span class="text-center align-middle p-1">SDG11 KPI</span></h1>
             </a>
         </div>
-    </div>
-</div>
-<div id="kpi_1" class="container-fluid" data-aos="fade-up"
-    data-aos-offset="200"
-    data-aos-delay="50"
-    data-aos-duration="500"
-    data-aos-easing="ease-in-out">
-    <div class="row justify-content-center align-item-center">
-        <div class="col-6" data-aos="fade-up">
-            <iframe src="./circle_world_plot_2014" style="width: 100%; height: 80vh;"></iframe>
-            <!-- <img src="img/test.jpg" alt="test"> -->
+        <div class="col-10 mt-5">
+            <div class="slogan" data-aos="fade-right" data-aos-delay="0">
+                <span>S</span>ustainable
+            </div>
+            <div class="slogan" data-aos="fade-right" data-aos-delay="100">
+                <span>D</span>evelopment
+            </div>
+            <div class="slogan" data-aos="fade-right" data-aos-delay="200">
+                <span>G</span>oals
+            </div>
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div id="circle_world_img" class="container-fluid">
+    <div class="row justify-content-center align-item-center">
+        <div class="col-6" data-aos="fade-up"
+            data-aos-offset="300"
+            data-aos-delay="50"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out">
+            <iframe src="./circle_world_plot_2014" style="width: 100%; height: 80vh;"></iframe>
+        </div>
+    </div>
+</div>
+<div id="flat_world_img" class="container-fluid">
     <div class="row justify-content-left mx-0">
         <div class="col-7" data-aos="fade-up"
             data-aos-offset="200"
@@ -103,8 +113,8 @@
 <script type="text/javascript">
     AOS.init();
     $(document).ready(function(){
-
-    })  
+        
+    })
 </script>
 
 </body>
