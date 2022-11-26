@@ -10,8 +10,12 @@ app = Flask(__name__) # __name__ 代表目前執行的模組
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)
 app.config['UPLOAD_FOLDER'] = "./upload"
+ALLOWED_EXTENSIONS = set(['csv'])
 
 
+def allowed_file(filename:str):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 @app.route("/") # 函式的裝置 (Decorator): 以函式為基礎，提供附加的功能
 def index():
@@ -70,14 +74,16 @@ def upload():
     if session.get("username") == "admin" and request.method == 'POST':
         file = request.files['file']
         fname = file.filename
-        savepath = os.path.join(app.config['UPLOAD_FOLDER'] , fname)
-        file.save( savepath )
-        with open( savepath , newline='') as csvfile:
-            data = list( csv.reader( csvfile ) )
-        dbconnect.delete_data( "kpi_1" )
-        dbconnect.insert_data( "kpi_1" , data )
-        os.unlink( savepath )
-        return redirect("/admin/backend")
+        if dbconnect.allowed_file(fname):
+            savepath = os.path.join(app.config['UPLOAD_FOLDER'] , fname)
+            file.save( savepath )
+            with open( savepath , newline='') as csvfile:
+                data = list( csv.reader( csvfile ) )
+            dbconnect.delete_data( "kpi_1" )
+            dbconnect.insert_data( "kpi_1" , data )
+            os.unlink( savepath )
+            return redirect("/admin/backend.html")
+        return redirect("/")
     return redirect("/")
 #==========================================
 
