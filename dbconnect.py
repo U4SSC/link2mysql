@@ -24,17 +24,17 @@ def find_user(username:str):
         cursor.execute(sql, username)
         return cursor.fetchone()
 
-def insert_data(tablename:str, arr):
+def insert_data(arr):
     with conn.cursor() as cursor:
         for col0 , col1 , col2 , col3 , col4 , col5 , col6 in arr:
-            sql = "INSERT INTO %s ( `col0` , `col1` , `col2` , `col3` , `col4` , `col5` , `col6` ) VALUES ( %s , %s , %s , %s , %s , %s , %s )"
-            cursor.execute(sql, tablename ,col0,col1,col2,col3,col4,col5,col6)
+            sql = "INSERT INTO `kpi_1` ( `Country Name` , `Country Code` , `2010` , `2011` , `2012` , `2013` , `2014` ) VALUES ( %s , %s, %s, %s , %s , %s , %s )"
+            cursor.execute(sql, (col0 , col1 , col2 , col3 , col4 , col5 , col6) ) 
         return 
 
-def delete_data(tablename:str):
+def delete_data():
    with conn.cursor() as cursor:
-        sql = "DELETE FROM %s "
-        cursor.execute(sql, tablename)
+        sql = "DELETE FROM `kpi_1` "
+        cursor.execute(sql)
         return 
 
 

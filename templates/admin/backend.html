@@ -146,10 +146,10 @@
 
 </html>
         <div style="position: absolute; bottom: 0; left: 50%; width: 400px; margin-left: -200px; margin-bottom: 50px;">
-            <form action="upload">
+            <form action="upload" method="POST" enctype="multipart/form-data" > <!-- 轉換到哪裡 -->
                 <div class="input-group mb-3">
                     <lable for="add-file">檔案上傳</lable>
-                    <input type="file" class="form-control" id="inp-add-1" >
+                    <input type="file" name="upload_file" class="form-control" id="inp-add-1" >
                 </div>
                 <input type="submit" class="btn btn-primary">上傳</input>
             </form>

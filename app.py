@@ -9,8 +9,8 @@ import csv
 app = Flask(__name__) # __name__ 代表目前執行的模組
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)
-app.config['UPLOAD_FOLDER'] = "./upload"
-ALLOWED_EXTENSIONS = set(['csv'])
+app.config['UPLOAD_FOLDER'] = "./csvupload"
+ALLOWED_EXTENSIONS = set(['csv']) # only csv file can upload
 
 
 def allowed_file(filename:str):
@@ -69,21 +69,21 @@ def backend_page():
     return redirect("/")
     
 #=============upload====================
-@app.route('/upload', methods=['POST', 'GET'])
+@app.route('/admin/upload', methods=['POST', 'GET'])
 def upload():
     if session.get("username") == "admin" and request.method == 'POST':
-        file = request.files['file']
+        file = request.files['upload_file']
         fname = file.filename
-        if dbconnect.allowed_file(fname):
-            savepath = os.path.join(app.config['UPLOAD_FOLDER'] , fname)
-            file.save( savepath )
-            with open( savepath , newline='') as csvfile:
-                data = list( csv.reader( csvfile ) )
-            dbconnect.delete_data( "kpi_1" )
-            dbconnect.insert_data( "kpi_1" , data )
-            os.unlink( savepath )
-            return redirect("/admin/backend.html")
-        return redirect("/")
+        savepath = os.path.join(app.config['UPLOAD_FOLDER'] , fname)
+        file.save( savepath )
+        with open( savepath , newline='', encoding="utf-8" ) as csvfile: # open file 
+            data = list( csv.reader( csvfile ) )
+
+        dbconnect.delete_data( )
+        dbconnect.insert_data(  data  )
+
+        os.unlink( savepath )
+        return redirect("/admin/backend")
     return redirect("/")
 #==========================================
 
