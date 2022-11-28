@@ -3,6 +3,7 @@
     top: 10%;
     right: 0;
     width: 12vw;
+    z-index: 10;
 }
 .list_buttons a {
     display: inline-block;
@@ -17,8 +18,9 @@
     transition-duration: 0.4s;
 }
 .web_title {
-	position: relative;
-	z-index: 0;
+	position: absolute;
+	top: 0;
+    z-index: 3;
 	border-radius: 10px;
 	overflow: hidden;
 	& a:hover{
@@ -52,23 +54,17 @@
         transition-duration: 4s;
 	}
 }
-.nav {
-    background-color: #FFFFFF;
-    height: 10rem;
-}
 .slogan {
+    position: absolute;
+    bottom: 30%;
+    left: 2%;
     font-size: 6rem;
+    z-index: 3;
     & span{
         color: red;
     }
 }
 
-#top, #linechart {
-    height: 100vh;
-}
-#top {
-    background-color: #E4FAF2;
-}
 #circle_world_img {
     border-radius: 20%;
 }
@@ -76,7 +72,31 @@
     display: inline-block;
     background-color: #E4FAF2;
 }
+#top{
+    height: 100vh;
+    width: 100%;
+    background: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
 
+    &::after{
+        content: "";
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at center bottom,
+          #e78e2f,
+          rgba(238, 221, 255, 0) 60%,
+          rgba(61, 138, 246, 0.8) 100%,
+        );
+        z-index: 2;
+        transform: translate3d(0, 0, 0);
+    }
+}
 #aboutus{
     height: 100vh;
     width: 100%;
@@ -98,11 +118,11 @@
           rgba(238, 221, 255, 0.3) 60%,
           rgba(238, 221, 255, 0) 100%,
         );
-        z-index: 30;
+        z-index: 2;
         transform: translate3d(0, 0, 0);
     }
 }
-.wave {
+.dusk {
     background: #fbb56a;
     width: 120vw;
     height: 120vmax;
@@ -116,10 +136,24 @@
     transform-origin: center;
     animation: drift 7s infinite linear;
 }
-.wave.two {
+.dawn {
+    background: #defb6a;
+    width: 120vw;
+    height: 120vmax;
+    border-radius: 42%;
+    opacity: 0.4;
+    position: absolute;
+    bottom: -190%;
+    left: 0%;
+    // margin-left: -250px;
+    // margin-top: -250px;
+    transform-origin: center;
+    animation: drift 7s infinite linear;
+}
+.dusk.two, .dawn.two {
     animation: drift 9s infinite linear;
 }
-.wave.three {
+.dusk.three, .dawn.three {
     animation: drift 11s infinite linear;
     opacity: 0.1;
 }
