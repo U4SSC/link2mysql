@@ -4,9 +4,6 @@
     <meta charset="UTF-8"/>
     <title>後端管理介面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-
-    </style>
 
     <!-- Bootstrap -->
 
@@ -14,6 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/backend.css') }}">
 
 </head>
+
 <body>
     <!--navbor-->
     <nav class="navbar navbar-default" id="admin-nav">
@@ -24,13 +22,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="backend.html" class="navbar-brand">後台管理介面</a>
+                <a href="backend" class="navbar-brand">後台管理介面</a>
             </div>
     
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-left">
                     <li class="active">
-                        <a href="backend.html">
+                        <a href="backend">
                             <span class="glyphicon glyphicon-user"></span>
                             檔案管理
                         </a>
@@ -55,8 +53,9 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="list-group">
-                        <a href="backend.html" class="list-group-item active">顯示目前已有的檔案</a>
-                        <a role="button" data-toggle="modal" data-target="#myModal" class="list-group-item">增加檔案</a>
+                        <a href="backend" class="list-group-item active">顯示目前已有的檔案</a>
+                        <a href="addfile" class="list-group-item ">增加檔案</a>
+
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -72,24 +71,24 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>2020/11/14.xlxs</td>
-                                <td>
-                                    <div role="presentation" class="dropdown">
-                                        
-                                        <button class="btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                            編輯
-                                        </button>
-                                        <button class="btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                            預覽
-                                        </button>
-                                        <button class="btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                            刪除
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>2020/11/14.xlxs</td>
+                                    <td>
+                                        <div role="presentation" class="dropdown">
+                                                
+                                            <button class="btn btn-default" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                                編輯
+                                            </button>
+                                            <button class="btn btn-default"  href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                                刪除
+                                            </button>
+                                            <button class="btn btn-default"  href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                                預覽
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
                            
                             </tbody>
                         </table>
@@ -113,30 +112,30 @@
 
 <!--增加檔案-->
 <section id="user-add">
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">增加檔案</h4>
+                    <button herf="backend" type="button" class="close"  data-toggle="modal" data-target="#myModal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 herf="backend"class="modal-title" id="myModalLabel">增加檔案</h4>
                 </div>
-                <div class="modal-body">
-                    <form action="#">
+                <div class="modal fade" id="myModal" role="dialog" name="myModal">
                         <div class="input-group mb-3">
-                            <lable for="add-file">檔案上傳</lable>
-                            <input type="file" class="form-control" id="inp-add-1" >
+                            <label for="add-file">檔案上傳</label>
+                            <input type="file" class="form-control" >
                         </div>
-
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
-                    <button type="button" class="btn btn-primary">上傳</button>
+                    <button type="submit" class="btn btn-primary">上傳</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+
 
 <script src="{{ url_for('static', filename = 'bootstrap_old/js/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename = 'bootstrap_old/js/jquery.min.js') }}"></script>
@@ -145,8 +144,11 @@
 </body>
 
 </html>
+
+
+<!--
         <div style="position: absolute; bottom: 0; left: 50%; width: 400px; margin-left: -200px; margin-bottom: 50px;">
-            <form action="upload" method="POST" enctype="multipart/form-data" > <!-- 轉換到哪裡 -->
+            <form action="upload" method="POST" enctype="multipart/form-data" > 
                 <div class="input-group mb-3">
                     <lable for="add-file">檔案上傳</lable>
                     <input type="file" name="upload_file" class="form-control" id="inp-add-1" >
@@ -154,3 +156,4 @@
                 <input type="submit" class="btn btn-primary">上傳</input>
             </form>
         </div>
+    -->

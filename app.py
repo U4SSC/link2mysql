@@ -67,7 +67,16 @@ def backend_page():
         return render_template("admin/backend.html")
     # ==================
     return redirect("/")
-    
+
+
+@app.route("/admin/addfile") # web_path
+def addfile_page():
+    # === check auth ===
+    if session.get("username") == "admin":
+        return render_template("admin/addfile.html")
+    # ==================
+    return redirect("/")
+
 #=============upload====================
 @app.route('/admin/upload', methods=['POST', 'GET'])
 def upload():
