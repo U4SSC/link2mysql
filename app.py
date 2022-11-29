@@ -91,8 +91,8 @@ def upload():
         dbconnect.delete_data( )
         dbconnect.insert_data(  data  )
 
-        os.unlink( savepath )
-        return redirect("/admin/backend")
+        #os.unlink( savepath )
+        return redirect("/admin/addfile")
     return redirect("/")
 #==========================================
 
