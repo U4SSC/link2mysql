@@ -76,6 +76,9 @@ def addfile_page():
         return render_template("admin/addfile.html")
     # ==================
     return redirect("/")
+@app.route("/reference")
+def reference_page():
+    return render_template("reference.html")
 
 #=============upload====================
 @app.route('/admin/upload', methods=['POST', 'GET'])

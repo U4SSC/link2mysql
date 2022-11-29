@@ -1,21 +1,42 @@
-<div id="reference" class="area">
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/reference.css') }}">
+    <title>reference</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wave one"></div>
+        <div class="wave two"></div>
+        <div class="wave three"></div>
+        <div class="title">reference</div>
+    </div>
     <div id="reference" class="area">
         <div class="container py-5">
-            <h1>Reference</h1><br/>
+            </br>
             <div class="row justify-content-center">
                 <div class="col-10">
                     <ul>
-                        <li class="h4">要填甚麼阿</li>
+                        <li class="h4"><a href="https://www.apachefriends.org/zh_tw/index.html">XAMPP</a></li>
+                        <li class="h4"><a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Bootstrap 5.0.2</a></li>
+                        <li class="h4"><a href="https://jquery.com/">jQuery</a></li>
+                        <li class="h4"><a href="https://michalsnik.github.io/aos/">AOS</a></li>
+                        <li class="h4"><a href="https://www.tpisoftware.com/tpu/articleDetails/2404">波浪動畫</a></li>
+                        <li class="h4"><a href="https://www.kaggle.com/datasets/sovannt/world-bank-youth-unemployment">失業率、資料來源以及繪圖參考資料</a></li>
+                        <li class="h4"><a href="https://reurl.cc/jRvo4n">Python資料庫學習筆記(四):使用PyMySQL模組</a></li>
+                        <li class="h4"><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_sql.html">使用pandas 從SQL Database讀取資料</a></li>
+                        <li class="h4"><a href="https://devs.tw/post/448">學習使用Flask</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="d-flex align-items-end flex-column bd-highlight mb-3" style="height: 500px;width: 1200px">
-                <div class="mt-auto p-2 bd-highlight">
-                    <a href="#top">
-                        <button type="button" class="btn btn-outline-secondary"><strong>Go back</strong></button>
-                    </a>
-                </div>
-            </div>
         </div>
+        <a style="position:absolute;bottom:5px;right:5px;margin:0;padding:5px 3px;" href="/">
+            <button type="button" class="btn btn-outline-secondary"><strong>Go back</strong></button>
+        </a>
     </div>
-</div>
+    
+</body>
+</html>
