@@ -68,7 +68,12 @@
   z-index: 3;
 }
 .slogan span {
-  color: red;
+  color: rgba(255, 80, 80, 0.9);
+}
+
+.intro {
+  font-size: 1.3em;
+  text-decoration: underline;
 }
 
 #circle_world_img {

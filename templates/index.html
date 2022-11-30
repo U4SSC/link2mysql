@@ -15,7 +15,7 @@
 
 <div class="list_buttons">
     <a href="#top">Top</a>
-    <a href="#kpi_1">KPI</a>
+    <a href="#KPI">KPI</a>
     <!-- <a href="#reference">Reference</a> -->
     <a href="#aboutus">About us</a>
 </div>
@@ -34,60 +34,80 @@
             <span>S</span>ustainable
         </div>
         <div data-aos="fade-right" data-aos-delay="100">
-            <span>D</span>evelopment
+            &emsp;<span>D</span>evelopment
         </div>
         <div data-aos="fade-right" data-aos-delay="200">
-            <span>G</span>oals
+            &emsp;&emsp;<span>G</span>oals
         </div>
     </div>
 </div>
-<div id="circle_world_img" class="container-fluid">
-    <div class="row justify-content-center align-item-center">
-        <div class="col-6" data-aos="fade-up"
-            data-aos-offset="300"
-            data-aos-delay="50"
-            data-aos-duration="500"
-            data-aos-easing="ease-in-out">
-            <iframe src="./circle_world_plot_2014" style="width: 100%; height: 80vh;"></iframe>
+<div id="KPI">
+    <div id="circle_world_img" class="container-fluid mt-3">
+        <div class="row justify-content-center align-item-center">
+            <div class="col-6" data-aos="fade-up"
+                data-aos-offset="300"
+                data-aos-delay="50"
+                data-aos-duration="500"
+                data-aos-easing="ease-in-out">
+                <iframe src="./circle_world_plot_2014" style="width: 100%; height: 80vh;"></iframe>
+            </div>
         </div>
     </div>
-</div>
-<div id="flat_world_img" class="container-fluid">
-    <div class="row justify-content-left mx-0">
-        <div class="col-7" data-aos="fade-up"
-            data-aos-offset="200"
-            data-aos-delay="50"
-            data-aos-duration="500"
-            data-aos-easing="ease-in-out">
-            <iframe src="/flat_world_plot_2014" style="width: 100%; height: 70vh;"></iframe>
-        </div>
-        <div class="offset-4 col-7" data-aos="fade-up"
-            data-aos-offset="200"
-            data-aos-delay="50"
-            data-aos-duration="500"
-            data-aos-easing="ease-in-out">
-            <iframe src="/scatter_plot_2014" style="width: 100%; height: 70vh;"></iframe>
+    <div id="flat_world_img" class="container-fluid">
+        <div class="row justify-content-left mx-0">
+            <div class="col-7" data-aos="fade-up"
+                data-aos-offset="200"
+                data-aos-delay="50"
+                data-aos-duration="500"
+                data-aos-easing="ease-in-out">
+                <iframe src="/flat_world_plot_2014" style="width: 100%; height: 70vh;"></iframe>
+            </div>
+            <div class="col-3 intro p-5" data-aos="fade-up"
+                data-aos-offset="200"
+                data-aos-delay="50"
+                data-aos-duration="500"
+                data-aos-easing="ease-in-out">
+                文字文字文字文字文字文字文字文字
+            </div>
+
+            <div class="offset-4 col-7" data-aos="fade-up"
+                data-aos-offset="200"
+                data-aos-delay="50"
+                data-aos-duration="500"
+                data-aos-easing="ease-in-out">
+                <iframe src="/scatter_plot_2014" style="width: 100%; height: 70vh;"></iframe>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid my-5">
     <div class="row justify-content-center mx-0">
-        <div id="linechart" class="col-12">
-            <a class="nav-link collapsed" href="#Asia" data-bs-toggle="collapse" aria-expanded="true" aria-controls="Asia">
-                <span>亞洲</span>
-            </a><a class="nav-link collapsed" href="#Europe" data-bs-toggle="collapse" aria-expanded="true" aria-controls="Europe">
-                <span>歐洲</span>
-            </a>
-            <div id="Asia" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    亞洲一
-                </div>
+        <div id="linechart" class="col-3">
+            <input type="hidden" name="checkList" value="[]" id="checkList">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="0" id="Taiwan" name="check">
+                <label class="form-check-label" for="Taiwan">
+                    臺灣
+                </label>
             </div>
-            <div id="Europe" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    亞洲一
-                </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="China">
+                <label class="form-check-label" for="China">
+                    中國
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="2" id="Japan">
+                <label class="form-check-label" for="Japan">
+                    日本
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="0" id="Korea">
+                <label class="form-check-label" for="Korea">
+                    韓國
+                </label>
             </div>
         </div>
     </div>
@@ -113,8 +133,17 @@
 <script src="{{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
 <script type="text/javascript">
     AOS.init();
-    $(document).ready(function(){
-        
+    $("input[name='check']").click(function(){
+        let checkArr=[];
+        $("input[name='check']:checked").each(function(){
+            // let number=$(this).val()
+            checkArr.push({
+                product: $(this).val(),
+                // number: number
+            });
+        })
+        let checkString=JSON.stringify(checkArr)
+        $("#checkList").val(checkString)
     })
 </script>
 
