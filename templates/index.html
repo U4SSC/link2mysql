@@ -86,29 +86,30 @@
         <div id="linechart" class="col-3">
             <input type="hidden" name="checkList" value="[]" id="checkList">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="0" id="Taiwan" name="check">
+                <input class="form-check-input" type="checkbox" name="country" value="0" id="Taiwan" name="check">
                 <label class="form-check-label" for="Taiwan">
                     臺灣
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="1" id="China">
+                <input class="form-check-input" type="checkbox" name="country" value="1" id="China">
                 <label class="form-check-label" for="China">
                     中國
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="2" id="Japan">
+                <input class="form-check-input" type="checkbox" name="country" value="2" id="Japan">
                 <label class="form-check-label" for="Japan">
                     日本
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="0" id="Korea">
+                <input class="form-check-input" type="checkbox" name="country" value="3" id="Korea">
                 <label class="form-check-label" for="Korea">
                     韓國
                 </label>
             </div>
+            <button class="btn btn-primary" id="linechartSearch">submit</button>
         </div>
     </div>
 </div>
@@ -133,19 +134,21 @@
 <script src="{{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
 <script type="text/javascript">
     AOS.init();
-    $("input[name='check']").click(function(){
-        let checkArr=[];
-        $("input[name='check']:checked").each(function(){
-            // let number=$(this).val()
-            checkArr.push({
-                product: $(this).val(),
-                // number: number
-            });
+
+    var checkedCountry = [];
+
+    $( "#linechartSearch" ).click(function() {
+        $("input[name='country']").each(function(){
+            if($(this).prop("checked")){
+                var id = $(this).val();
+                var name = $(this).attr('id');
+                checkedCountry.push({id,name});
+            }
         })
-        let checkString=JSON.stringify(checkArr)
-        $("#checkList").val(checkString)
-    })
-</script>
+        var json = JSON.stringify(checkedCountry);
+        console.log(json);
+    });
+    </script>
 
 </body>
 </html>

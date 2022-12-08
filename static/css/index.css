@@ -80,9 +80,9 @@
   border-radius: 20%;
 }
 
-#linechart .nav-link {
-  display: inline-block;
-  background-color: #E4FAF2;
+#linechart {
+  border: 0.4rem solid black;
+  padding: 1rem;
 }
 
 #top {
