@@ -83,33 +83,18 @@
 
 <div class="container-fluid my-5">
     <div class="row justify-content-center mx-0">
-        <div id="linechart" class="col-3">
-            <input type="hidden" name="checkList" value="[]" id="checkList">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="country" value="0" id="Taiwan" name="check">
+        <div class="col-6 row justify-content-between mx-0">
+            {% for name in country %}
+            <div class="col-6 form-check">
+                <input class="form-check-input" type="checkbox" name="country" id="{{ name }}" name="check">
                 <label class="form-check-label" for="Taiwan">
-                    臺灣
+                    {{ name }}
                 </label>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="country" value="1" id="China">
-                <label class="form-check-label" for="China">
-                    中國
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="country" value="2" id="Japan">
-                <label class="form-check-label" for="Japan">
-                    日本
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="country" value="3" id="Korea">
-                <label class="form-check-label" for="Korea">
-                    韓國
-                </label>
-            </div>
+            {% endfor %}
             <button class="btn btn-primary" id="linechartSearch">submit</button>
+        </div>
+        <div id="linechart" class="col-6">
         </div>
     </div>
 </div>
@@ -140,9 +125,8 @@
     $( "#linechartSearch" ).click(function() {
         $("input[name='country']").each(function(){
             if($(this).prop("checked")){
-                var id = $(this).val();
                 var name = $(this).attr('id');
-                checkedCountry.push({id,name});
+                checkedCountry.push(name);
             }
         })
         var json = JSON.stringify(checkedCountry);

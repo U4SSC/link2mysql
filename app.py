@@ -12,6 +12,9 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)
 app.config['UPLOAD_FOLDER'] = "./csvupload"
 ALLOWED_EXTENSIONS = set(['csv']) # only csv file can upload
 
+#==========================================
+country = ["Afghanistan","Angola","Albania","United Arab Emirates","Argentina","Armenia","Australia","Austria","Azerbaijan","Burundi","Belgium","Benin","Burkina Faso","Bangladesh","Bulgaria","Bahrain","The Bahamas","Bosnia and Herzegovina","Belarus","Belize","Bolivia","Brazil","Barbados","Brunei Darussalam","Bhutan","Botswana","Central African Republic","Canada","Switzerland","Chile","China","Cote d'Ivoire","Cameroon","Congo, Rep.","Colombia","Comoros","Cabo Verde","Costa Rica","Cuba","Cyprus","Czech Republic","Germany","Denmark","Dominican Republic","Algeria","Ecuador","Egypt, Arab Rep.","Eritrea","Spain","Estonia","Ethiopia","Finland","Fiji","France","Gabon","United Kingdom","Georgia","Ghana","Guinea","The Gambia","Guinea-Bissau","Equatorial Guinea","Greece","Guatemala","Guyana","Hong Kong SAR, China","Honduras","Croatia","Haiti","Hungary","Indonesia","India","Ireland","Iran, Islamic Rep.","Iraq","Iceland","Israel","Italy","Jamaica","Jordan","Japan","Kazakhstan","Kenya","Kyrgyz Republic","Cambodia","Korea, Rep.","Kuwait","Lao PDR","Lebanon","Liberia","Libya","Sri Lanka","Lesotho","Lithuania","Luxembourg","Latvia","Macao SAR, China","Morocco","Moldova","Madagascar","Maldives","Mexico","Macedonia, FYR","Mali","Malta","Myanmar","Montenegro","Mongolia","Mozambique","Mauritania","Mauritius","Malawi","Malaysia","Namibia","Niger","Nigeria","Nicaragua","Netherlands","Norway","Nepal","New Zealand","Oman","Pakistan","Panama","Peru","Philippines","Papua New Guinea","Poland","Puerto Rico","Korea, Dem. People's Rep.","Portugal","Paraguay","Qatar","Romania","Russian Federation","Rwanda","Saudi Arabia","Sudan","Senegal","Singapore","Solomon Islands","Sierra Leone","El Salvador","Somalia","Serbia","Suriname","Slovak Republic","Slovenia","Sweden","Swaziland","Syrian Arab Republic","Chad","Togo","Thailand","Tajikistan","Turkmenistan","Timor-Leste","Trinidad and Tobago","Tunisia","Turkey","Tanzania","Uganda","Ukraine","Uruguay","United States","Uzbekistan","Venezuela, RB","Vietnam","West Bank and Gaza","Yemen, Rep.","South Africa","Congo, Dem. Rep.","Zambia","Zimbabwe"]
+#==========================================
 
 def allowed_file(filename:str):
     return '.' in filename and \
@@ -19,7 +22,7 @@ def allowed_file(filename:str):
 
 @app.route("/") # 函式的裝置 (Decorator): 以函式為基礎，提供附加的功能
 def index():
-    return render_template("index.html")
+    return render_template("index.html",country=country)
 
 @app.route('/circle_world_plot_2014')
 def circle_world_plot_2014():
