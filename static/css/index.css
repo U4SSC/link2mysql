@@ -1,25 +1,48 @@
-.list_buttons {
-  position: fixed;
-  top: 10%;
-  right: 0;
-  width: 12vw;
-  z-index: 10;
+#top {
+  position: relative;
 }
 
-.list_buttons a {
-  display: inline-block;
+.top_bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  padding: 0.5em;
-  font-size: 1.2rem;
+  height: 4rem;
+  background-color: #FAFAFA;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  z-index: 3;
+}
+.top_bar a {
+  display: inline-block;
+  min-width: 10%;
+  padding: 1rem;
   text-align: center;
-  text-decoration: underline;
+  color: #212121;
 }
-
-.list_buttons a:hover {
-  transform: scale(1.2);
-  transition-duration: 0.4s;
+.top_bar_fixed {
+  visibility: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 4rem;
+  background-color: #212121;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  z-index: 3;
 }
-
+.top_bar_fixed a {
+  display: inline-block;
+  min-width: 10%;
+  padding: 1rem;
+  text-align: center;
+  color: #FAFAFA !important;
+}
 .web_title {
   position: absolute;
   top: 0;
@@ -80,9 +103,25 @@
   border-radius: 20%;
 }
 
-#linechart {
-  border: 0.4rem solid black;
-  padding: 1rem;
+#country_checkbox {
+  max-height: 31rem;
+  overflow-y: scroll;
+  border-radius: 1rem;
+  background-color: transparent;
+}
+#country_checkbox::-webkit-scrollbar {
+  width: 1em;
+}
+#country_checkbox::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+#country_checkbox::-webkit-scrollbar-thumb {
+  background-color: rgba(1, 87, 155, 0.4);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 #top {

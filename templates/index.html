@@ -13,22 +13,17 @@
 </head>
 <body>
 
-<div class="list_buttons">
+<div class="top_bar_fixed px-auto">
     <a href="#top">Top</a>
     <a href="#KPI">KPI</a>
-    <!-- <a href="#reference">Reference</a> -->
     <a href="#aboutus">About us</a>
 </div>
 
-<div id="top" class="row justify-content-left mx-0">
+<div id="top" class="row justify-content-center mx-0">
     <div class="dawn one"></div>
     <div class="dawn two"></div>
     <div class="dawn three"></div>
-    <!-- <div class="col-4 text-center web_title py-2 m-3">
-        <a href="index.html">
-            <h1><span class="text-center align-middle p-1">SDG11 KPI</span></h1>
-        </a>
-    </div> -->
+
     <div class="slogan col-10 mt-5">
         <div data-aos="fade-right" data-aos-delay="0">
             <span>S</span>ustainable
@@ -39,6 +34,12 @@
         <div data-aos="fade-right" data-aos-delay="200">
             &emsp;&emsp;<span>G</span>oals
         </div>
+    </div>
+
+    <div class="top_bar px-auto">
+        <a href="#top">Top</a>
+        <a href="#KPI">KPI</a>
+        <a href="#aboutus">About us</a>
     </div>
 </div>
 <div id="KPI">
@@ -55,14 +56,14 @@
     </div>
     <div id="flat_world_img" class="container-fluid">
         <div class="row justify-content-left mx-0">
-            <div class="col-7" data-aos="fade-up"
+            <div class="col-8" data-aos="fade-up"
                 data-aos-offset="200"
                 data-aos-delay="50"
                 data-aos-duration="500"
                 data-aos-easing="ease-in-out">
                 <iframe src="/flat_world_plot_2014" style="width: 100%; height: 70vh;"></iframe>
             </div>
-            <div class="col-3 intro p-5" data-aos="fade-up"
+            <div class="col-4 intro p-5" data-aos="fade-up"
                 data-aos-offset="200"
                 data-aos-delay="50"
                 data-aos-duration="500"
@@ -70,7 +71,7 @@
                 文字文字文字文字文字文字文字文字
             </div>
 
-            <div class="offset-4 col-7" data-aos="fade-up"
+            <div class="offset-4 col-8" data-aos="fade-up"
                 data-aos-offset="200"
                 data-aos-delay="50"
                 data-aos-duration="500"
@@ -82,19 +83,20 @@
 </div>
 
 <div class="container-fluid my-5">
-    <div class="row justify-content-center mx-0">
-        <div class="col-6 row justify-content-between mx-0">
+    <div class="row justify-content-center align-item-center mx-0">
+        <div id="country_checkbox" class="col-6 shadow-lg row justify-content-between p-3 mx-0">
             {% for name in country %}
             <div class="col-6 form-check">
-                <input class="form-check-input" type="checkbox" name="country" id="{{ name }}" name="check">
-                <label class="form-check-label" for="Taiwan">
+                <input class="form-check-input" type="checkbox" name="country" id="{{ name }}">
+                <label class="form-check-label" for="{{ name }}">
                     {{ name }}
                 </label>
             </div>
             {% endfor %}
-            <button class="btn btn-primary" id="linechartSearch">submit</button>
+            <button class="col-6 offset-3 btn btn-primary mt-4" id="linechartSearch">submit</button>
         </div>
-        <div id="linechart" class="col-6">
+        <div id="linechart" class="col-6 p-3">
+            <img src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 28rem;">
         </div>
     </div>
 </div>
@@ -122,7 +124,7 @@
 
     var checkedCountry = [];
 
-    $( "#linechartSearch" ).click(function() {
+    $("#linechartSearch").click(function() {
         $("input[name='country']").each(function(){
             if($(this).prop("checked")){
                 var name = $(this).attr('id');
@@ -131,6 +133,17 @@
         })
         var json = JSON.stringify(checkedCountry);
         console.log(json);
+    });
+
+    $(window).scroll(function() {
+        var scrollTop = $(window).scrollTop();
+        if(scrollTop > $(".top_bar").offset().top || scrollTop > $(".top_bar").offset().top){
+            $(".top_bar").css({"visibility":"hidden"});
+            $(".top_bar_fixed").css({"visibility":"visible"});
+        }else{
+            $(".top_bar").css({"visibility":"visible"});
+            $(".top_bar_fixed").css({"visibility":"hidden"});
+        }
     });
     </script>
 
