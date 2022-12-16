@@ -36,7 +36,8 @@ def create_2d_plot():
 
     os.system("python create_2d_plot.py")
 
-    return
+    return "123"
+
 
 @app.route('/circle_world_plot_2014')
 def circle_world_plot_2014():
