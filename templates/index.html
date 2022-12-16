@@ -84,17 +84,17 @@
 
 <div class="container-fluid my-5">
     <div class="row justify-content-center align-item-center mx-0">
-            <div id="country_checkbox" class="col-6 shadow-lg row justify-content-between p-3 mx-0">
-                {% for name in country %}
-                <div class="col-6 form-check">
-                    <input class="form-check-input" type="checkbox" name="country" id="{{ name }}">
-                    <label class="form-check-label" for="{{ name }}">
-                        {{ name }}
-                    </label>
-                </div>
-                {% endfor %}
-                <button type="submit" class="col-6 offset-3 btn btn-primary mt-4" id="linechartSearch">submit</button>
+        <div id="country_checkbox" class="col-6 shadow-lg row justify-content-between p-3 mx-0">
+            {% for name in country %}
+            <div class="col-6 form-check">
+                <input class="form-check-input" type="checkbox" name="country" id="{{ name }}">
+                <label class="form-check-label" for="{{ name }}">
+                    {{ name }}
+                </label>
             </div>
+            {% endfor %}
+            <button type="button" class="col-6 offset-3 btn btn-primary mt-4" id="linechartSearch">submit</button>
+        </div>
         <div id="linechart" class="col-6 p-3">
             <img src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 28rem;">
         </div>
@@ -133,20 +133,20 @@
         })
         var json_country = JSON.stringify(checkedCountry);
         console.log(json_country);
-        $.ajax({
-            type: "POST",
-            url: "/create_2d_plot",
-            data: json_country,
-            success: (data) => {
-                console.log(data.validate);
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/create_2d_plot",
+        //     data: json_country,
+        //     success: (data) => {
+        //         console.log(data.validate);
 
-                alert(data.validate)
-                alert(data.Rtnfood)
-            },
-            contentType: false,
-            processData: false,
-            dataType: "json"
-        });
+        //         alert(data.validate)
+        //         alert(data.Rtnfood)
+        //     },
+        //     contentType: false,
+        //     processData: false,
+        //     dataType: "json"
+        // });
     });
 
     $(window).scroll(function() {
