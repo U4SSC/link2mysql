@@ -27,18 +27,16 @@ def index():
 
 @app.route('/create_2d_plot', methods=['POST'])
 def create_2d_plot():
-    print(request.form.get('json_country'))
-    print("================================")
-    print(request.form)
-    json_country = request.form.get('json_country')
+    # print(request.form['data'])
+
+    json_country = request.get_json()
+    print(json_country)
     with open("country_list.json", "w") as outfile:
         json.dump(json_country, outfile)
 
     os.system("python create_2d_plot.py")
 
-    img = cv2.imread("./2d_plot/2d_plot.png")
-
-    return img
+    return
 
 @app.route('/circle_world_plot_2014')
 def circle_world_plot_2014():

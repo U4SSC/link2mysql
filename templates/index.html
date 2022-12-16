@@ -133,6 +133,9 @@
         })
         var json_country = JSON.stringify(checkedCountry);
         console.log(json_country);
+        // json_country.find((obj)=>obj.name=='json').value="true"
+        // var datas = $("form").serializeArray()
+
         $.ajax({
             type: "POST",
             url: "/create_2d_plot",
@@ -140,10 +143,10 @@
             success: (data) => {
                 console.log(data.validate);
 
-                alert(data.validate)
-                alert(data.Rtnfood)
+                // alert(data.validate)
+                // alert(data.Rtnfood)
             },
-            contentType: false,
+            contentType: "application/json",
             processData: false,
             dataType: "json"
         });
