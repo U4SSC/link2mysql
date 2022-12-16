@@ -3,8 +3,9 @@ import dbconnect
 import hashlib
 from datetime import timedelta
 import os
-import csv 
-
+import csv
+import cv2
+import json
 
 app = Flask(__name__) # __name__ 代表目前執行的模組
 app.config['SECRET_KEY'] = os.urandom(24)
@@ -23,6 +24,21 @@ def allowed_file(filename:str):
 @app.route("/") # 函式的裝置 (Decorator): 以函式為基礎，提供附加的功能
 def index():
     return render_template("index.html",country=country)
+
+@app.route('/create_2d_plot', methods=['POST'])
+def create_2d_plot():
+    print(request.form.get('json_country'))
+    print("================================")
+    print(request.form)
+    json_country = request.form.get('json_country')
+    with open("country_list.json", "w") as outfile:
+        json.dump(json_country, outfile)
+
+    os.system("python create_2d_plot.py")
+
+    img = cv2.imread("./2d_plot/2d_plot.png")
+
+    return img
 
 @app.route('/circle_world_plot_2014')
 def circle_world_plot_2014():
@@ -50,7 +66,7 @@ def logout():
     session["username"] = False
     return redirect("/")
 
-@app.route("/checkAuth", methods=['POST', 'GET']) # check auth 
+@app.route("/checkAuth", methods=['POST', 'GET']) # check auth
 def checkAuth():
     if request.method == "POST":
         # === check username & password ===
@@ -91,7 +107,7 @@ def upload():
         fname = file.filename
         savepath = os.path.join(app.config['UPLOAD_FOLDER'] , fname)
         file.save( savepath )
-        with open( savepath , newline='', encoding="utf-8" ) as csvfile: # open file 
+        with open( savepath , newline='', encoding="utf-8" ) as csvfile: # open file
             data = list( csv.reader( csvfile ) )
 
         dbconnect.delete_data( )
