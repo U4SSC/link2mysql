@@ -8,6 +8,7 @@ import seaborn as sns
 import warnings
 import os
 import sys
+import json
 
 sys.path.append('./')
 sys.path.append('./../')
@@ -48,7 +49,8 @@ def create_2d_plot(selected_countries=[]):
                     label=country)
 
     plt.legend(loc='upper left')
-    plt.savefig("./2d_plot/2d_plot.png")
+
+    plt.savefig("./static/img/2d_plot.png")
 
 if __name__ == "__main__":
     # read data
@@ -62,7 +64,7 @@ if __name__ == "__main__":
     index = df_non_country.index
     df_country = df.drop(index)
 
-    # country_list = df_country["Country Name"]
+    country_list = df_country["Country Name"]
     year_list = ['2010', '2011', '2012', '2013', '2014']
 
     try:
@@ -75,8 +77,8 @@ if __name__ == "__main__":
 
     # selected_countries = country_list[:5]
     file = open('country_list.json')
-  
-    # returns JSON object as 
+
+    # returns JSON object as
     # a dictionary
     selected_countries = json.load(file)
     selected_countries = list(selected_countries)

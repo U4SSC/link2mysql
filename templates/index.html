@@ -93,11 +93,11 @@
                 </label>
             </div>
             {% endfor %}
-            <button type="button" class="col-6 offset-3 btn btn-primary mt-4" id="linechartSearch">submit</button>
+            <button type="submit" class="col-6 offset-3 btn btn-primary mt-4" id="linechartSearch">submit</button>
         </div>
-        <div id="linechart" class="col-6 p-3">
-            <img src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 28rem;">
-        </div>
+    <div class="col-6 p-3">
+        <img id="linechart" src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 28rem;">
+    </div>
     </div>
 </div>
 
@@ -125,6 +125,7 @@
     var checkedCountry = [];
 
     $("#linechartSearch").click(function() {
+        checkedCountry = [];
         $("input[type='checkbox']").each(function(){
             if($(this).prop("checked")){
                 var name = $(this).attr('id');
@@ -133,20 +134,18 @@
         })
         var json_country = JSON.stringify(checkedCountry);
         console.log(json_country);
-        // $.ajax({
-        //     type: "POST",
-        //     url: "/create_2d_plot",
-        //     data: json_country,
-        //     success: (data) => {
-        //         console.log(data.validate);
-
-        //         alert(data.validate)
-        //         alert(data.Rtnfood)
-        //     },
-        //     contentType: false,
-        //     processData: false,
-        //     dataType: "json"
-        // });
+        $.ajax({
+            type: "POST",
+            url: "/create_2d_plot",
+            data: json_country,
+            contentType: "application/json",
+            processData: false,
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+                $("#linechart").attr("src", "/static/img/2d_plot.png?timestamp=" + new Date().getTime());
+            }
+        });
     });
 
     $(window).scroll(function() {
