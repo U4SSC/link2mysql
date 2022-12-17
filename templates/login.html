@@ -3,23 +3,25 @@
     <head>
         <meta charset="utf-8"></meta>
         <title>登入</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/login.css') }}"> 
     </head>
     <boby>
+        <div class='wrap'>
+            Welcome
         <form action="/checkAuth" method="POST" class="login">
-            <h1>登入</h1>
-            <i class="fa fa-user-circle-o"></i>
             <div class="account">
-                <input type="text" name="username" autocomplete="off" required />
-                <label for="form_account" class="account-label"><span class="account-name">帳號</span></label>
+                <input type="text" id='username' name="username"  placeholder='Account' autocomplete="off" required />
+                <!-- <label for="form_account" class="account-label"><span class="account-name"></span></label> -->
             </div>
             <div class="account">
-                <input type="password" name="password" autocomplete="off" required />
-                <label for="form_account" class="account-label"><span class="account-name">密碼</span></label>
+                <input type="password" id='password' name="password"  placeholder='Password' autocomplete="off"  required />
+                <!-- <label for="form_account" class="account-label"><span class="account-name"></span></label> -->
             </div>
-            <button type="submit">登入</botton>
+            <button type="submit"  >Login</button>
         </form>
+        </div>
+
+
     </boby>
+    
 </html>

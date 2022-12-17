@@ -84,20 +84,20 @@
 
 <div class="container-fluid my-5">
     <div class="row justify-content-center align-item-center mx-0">
-        <div id="country_checkbox" class="col-6 shadow-lg row justify-content-between p-3 mx-0">
-            {% for name in country %}
-            <div class="col-6 form-check">
-                <input class="form-check-input" type="checkbox" name="country" id="{{ name }}">
-                <label class="form-check-label" for="{{ name }}">
-                    {{ name }}
-                </label>
+            <div id="country_checkbox" class="col-6 shadow-lg row justify-content-between p-3 mx-0">
+                {% for name in country %}
+                <div class="col-6 form-check">
+                    <input class="form-check-input" type="checkbox" name="country" id="{{ name }}">
+                    <label class="form-check-label" for="{{ name }}">
+                        {{ name }}
+                    </label>
+                </div>
+                {% endfor %}
+                <button type="submit" class="col-6 offset-3 btn btn-primary mt-4" id="linechartSearch">submit</button>
             </div>
-            {% endfor %}
-            <button type="submit" class="col-6 offset-3 btn btn-primary mt-4" id="linechartSearch">submit</button>
+        <div class="col-6 p-3">
+            <img id="linechart" src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 28rem;">
         </div>
-    <div class="col-6 p-3">
-        <img id="linechart" src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 28rem;">
-    </div>
     </div>
 </div>
 
@@ -134,6 +134,9 @@
         })
         var json_country = JSON.stringify(checkedCountry);
         console.log(json_country);
+        // json_country.find((obj)=>obj.name=='json').value="true"
+        // var datas = $("form").serializeArray()
+
         $.ajax({
             type: "POST",
             url: "/create_2d_plot",

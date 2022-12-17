@@ -85,14 +85,14 @@ def backend_page():
     # ==================
     return redirect("/")
 
-
-@app.route("/admin/addfile") # web_path
-def addfile_page():
+@app.route("/admin/addfile", methods=['POST', 'GET']) # addfile
+def addfile():
     # === check auth ===
     if session.get("username") == "admin":
         return render_template("admin/addfile.html")
     # ==================
     return redirect("/")
+
 @app.route("/reference")
 def reference_page():
     return render_template("reference.html")
