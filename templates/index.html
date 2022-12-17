@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class="top_bar px-auto">
+    <div class="top_bar">
         <a href="#top">Top</a>
         <a href="#KPI">KPI</a>
         <a href="#aboutus">About us</a>
@@ -44,13 +44,13 @@
 </div>
 <div id="KPI">
     <div id="circle_world_img" class="container-fluid mt-3">
-        <div class="row justify-content-center align-item-center">
+        <div class="row justify-content-left align-item-center">
             <div class="col-6" data-aos="fade-up"
                 data-aos-offset="300"
                 data-aos-delay="50"
                 data-aos-duration="500"
                 data-aos-easing="ease-in-out">
-                <iframe src="./circle_world_plot_2014" style="width: 100%; height: 80vh;"></iframe>
+                <iframe src="./circle_world_plot_2014" style="width: 100%; height: 80vh;" class="shadow-lg"></iframe>
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
                 data-aos-delay="50"
                 data-aos-duration="500"
                 data-aos-easing="ease-in-out">
-                <iframe src="/flat_world_plot_2014" style="width: 100%; height: 70vh;"></iframe>
+                <iframe src="/flat_world_plot_2014" style="width: 100%; height: 70vh;" class="shadow-lg"></iframe>
             </div>
             <div class="col-4 intro p-5" data-aos="fade-up"
                 data-aos-offset="200"
@@ -71,12 +71,12 @@
                 文字文字文字文字文字文字文字文字
             </div>
 
-            <div class="offset-4 col-8" data-aos="fade-up"
+            <div class="col-8" data-aos="fade-up"
                 data-aos-offset="200"
                 data-aos-delay="50"
                 data-aos-duration="500"
                 data-aos-easing="ease-in-out">
-                <iframe src="/scatter_plot_2014" style="width: 100%; height: 70vh;"></iframe>
+                <iframe src="/scatter_plot_2014" style="width: 100%; height: 70vh;" class="shadow-lg"></iframe>
             </div>
         </div>
     </div>
@@ -96,7 +96,7 @@
                 <button type="submit" class="col-6 offset-3 btn btn-primary mt-4" id="linechartSearch">submit</button>
             </div>
         <div class="col-6 p-3">
-            <img id="linechart" src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 28rem;">
+            <img id="linechart" src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 28rem;" class="shadow-lg">
         </div>
     </div>
 </div>
