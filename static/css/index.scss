@@ -1,0 +1,193 @@
+#top{
+    position: relative;
+}
+.top_bar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    position: absolute;
+    top: 10rem;
+    right: -15rem;
+    width: 30rem;
+    height: 30rem;
+    background-color: #FAFAFA;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    border-radius: 45%;
+    z-index: 3;
+    overflow: hidden;
+
+    & a{
+        display: inline-block;
+        width: 10rem;
+        height: fit-content;
+        padding: 0.5rem;
+        margin: 1.5rem 3rem;
+        text-align: center;
+        color: #212121;
+        border: 2px solid #BFC0C0;
+        cursor: pointer;
+        transition: all .45s ease-Out;
+    }
+    & a:hover, & a:focus{
+        color: #FFFFFF;
+        background-color: #455A64;
+    }
+}
+.top_bar_fixed{
+    visibility: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 4rem;
+    background-color: #212121;
+    border-bottom-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    z-index: 3;
+
+    & a{
+        display: inline-block;
+        min-width: 10%;
+        height: fit-content;
+        padding: 0.5rem;
+        color: #FAFAFA !important;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+.slogan {
+    position: absolute;
+    bottom: 30%;
+    left: 2%;
+    font-size: 6rem;
+    font-weight: 800;
+    z-index: 3;
+    & span{
+        color: rgba(255, 80, 80, 0.9);
+    }
+}
+.intro {
+    font-size: 1.3em;
+    text-decoration: underline;
+}
+#circle_world_img {
+    border-radius: 20%;
+}
+#country_checkbox{
+    max-height: 31rem;
+    overflow-y: scroll;
+    border-radius: 1rem;
+    background-color: transparent;
+
+    &::-webkit-scrollbar {
+        width: 1em;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(1, 87, 155, 0.4);
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+}
+#linechart{
+    // padding: 1rem;
+}
+#top{
+    height: 100vh;
+    width: 100%;
+    background: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+
+    &::after{
+        content: "";
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at center bottom,
+          #e78e2f,
+          rgba(238, 221, 255, 0) 60%,
+          rgba(61, 138, 246, 0.8) 100%,
+        );
+        z-index: 2;
+        transform: translate3d(0, 0, 0);
+    }
+}
+#aboutus{
+    height: 100vh;
+    width: 100%;
+    background: #060606;
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+
+    &::after{
+        content: "";
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        // background: radial-gradient(
+        //   circle at center top,
+        //   #e78e2f,
+        //     rgba(238, 221, 255, 0.3) 60%,
+        //     rgba(33, 33, 33,1.0) 80%,
+        // );
+        z-index: 2;
+        transform: translate3d(0, 0, 0);
+    }
+}
+.dusk {
+    background: #fbb56a;
+    width: 60vw;
+    height: 60vmax;
+    border-radius: 42%;
+    opacity: 0.4;
+    position: absolute;
+    top: -70%;
+    left: -5%;
+    // margin-left: -250px;
+    // margin-top: -250px;
+    transform-origin: center;
+    animation: drift 7s infinite linear;
+}
+.dawn {
+    background: #defb6a;
+    width: 120vw;
+    height: 120vmax;
+    border-radius: 42%;
+    opacity: 0.4;
+    position: absolute;
+    bottom: -190%;
+    left: 0%;
+    // margin-left: -250px;
+    // margin-top: -250px;
+    transform-origin: center;
+    animation: drift 7s infinite linear;
+}
+.dusk.two, .dawn.two {
+    animation: drift 9s infinite linear;
+}
+.dusk.three, .dawn.three {
+    animation: drift 11s infinite linear;
+    opacity: 0.1;
+}
+#info {
+    position: absolute;
+    bottom: 0;
+    height: 30vh;
+    color: #FFFFFF;
+}
