@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="top_bar_fixed px-auto">
+<div class="top_bar px-auto">
     <a href="#top">Top</a>
     <a href="#KPI">KPI</a>
     <a href="#aboutus">About us</a>
@@ -35,64 +35,69 @@
             &emsp;&emsp;<span>G</span>oals
         </div>
     </div>
-
-    <div class="top_bar">
-        <a href="#top">Top</a>
-        <a href="#KPI">KPI</a>
-        <a href="#aboutus">About us</a>
-    </div>
 </div>
 <div id="KPI">
-    <div class="container-fluid mt-3">
-        <div class="row justify-content-left align-item-center">
-            <div class="col-6" data-aos="fade-up"
-                data-aos-offset="300"
+    <div class="container my-5">
+        <div class="row justify-content-around align-item-center">
+            <div id="circle_world" class="col-4 icon_for_graph" data-aos="fade-down"
+                data-aos-offset="150"
                 data-aos-delay="50"
-                data-aos-duration="500"
+                data-aos-duration="800"
                 data-aos-easing="ease-in-out">
-                <iframe src="./circle_world_plot_2014" style="width: 100%; height: 80vh;" class="shadow-lg"></iframe>
+                <img src="{{ url_for('static', filename = 'img/earth.png') }}" alt="earth">
             </div>
-            <div class="col-8" data-aos="fade-up"
-                data-aos-offset="200"
-                data-aos-delay="50"
-                data-aos-duration="500"
+            <div id="flat_world" class="col-4 icon_for_graph" data-aos="fade-down"
+                data-aos-offset="150"
+                data-aos-delay="150"
+                data-aos-duration="800"
                 data-aos-easing="ease-in-out">
-                <iframe src="/flat_world_plot_2014" style="width: 100%; height: 70vh;" class="shadow-lg"></iframe>
+                <img src="{{ url_for('static', filename = 'img/map.png') }}" alt="map">
             </div>
-            <!-- <div class="col-4 intro p-5" data-aos="fade-up"
-                data-aos-offset="200"
-                data-aos-delay="50"
-                data-aos-duration="500"
+            <div id="scatter_world" class="col-4 icon_for_graph" data-aos="fade-down"
+                data-aos-offset="150"
+                data-aos-delay="250"
+                data-aos-duration="800"
                 data-aos-easing="ease-in-out">
-                文字文字文字文字文字文字文字文字
-            </div> -->
-            <div class="col-8" data-aos="fade-up"
-                data-aos-offset="200"
-                data-aos-delay="50"
-                data-aos-duration="500"
-                data-aos-easing="ease-in-out">
-                <iframe src="/scatter_plot_2014" style="width: 100%; height: 70vh;" class="shadow-lg"></iframe>
+                <img src="{{ url_for('static', filename = 'img/scatter.png') }}" alt="scatter">
+            </div>
+            <div id="circle_world_img" class="">
+                <iframe src="/circle_world_plot_2014" class=""></iframe>
+                <div class="intro p-5">
+                    文字文字文字文字文字文字文字文字
+                </div>
+            </div>
+            
+            <div id="flat_world_img" class="">
+                <iframe src="/flat_world_plot_2014"></iframe>
+            </div>
+            <div id="scatter_world_img" class="">
+                <iframe src="/scatter_plot_2014"></iframe>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container-fluid my-5">
+<h4 class="text-center">Please choose countrys to make line chart.</h4>
+<div class="container my-5">
     <div class="row justify-content-center align-item-center mx-0">
-            <div id="country_checkbox" class="col-6 shadow-lg row justify-content-between p-3 mx-0">
-                {% for name in country %}
-                <div class="col-6 form-check">
-                    <input class="form-check-input" type="checkbox" name="country" id="{{ name }}">
-                    <label class="form-check-label" for="{{ name }}">
-                        {{ name }}
-                    </label>
-                </div>
-                {% endfor %}
-                <button type="submit" class="col-6 offset-3 btn btn-primary mt-4" id="linechartSearch">submit</button>
+        <div id="country_checkbox" class="col-6 shadow-lg row justify-content-between p-5 mx-0">
+            {% for name in country %}
+            <div class="col-6 form-check">
+                <input class="form-check-input" type="checkbox" name="country" id="{{ name }}">
+                <label class="form-check-label" for="{{ name }}">
+                    {{ name }}
+                </label>
             </div>
-        <div class="col-6 p-3">
-            <img id="linechart" src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 28rem;" class="shadow-lg">
+            {% endfor %}
         </div>
+        <div class="col-6 text-center">
+            <img id="linechart" src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 100%;" class="shadow-lg">
+        </div>
+        <div class="col-6 text-center">
+            <button type="submit" class="col-2 btn btn-primary mt-4 mx-2" id="linechartSearch">submit</button>
+            <button type="button" class="col-2 btn btn-danger mt-4 mx-2" id="linechartClear">Clear</button>
+        </div>
+        <div class="col-6"></div>
     </div>
 </div>
 
@@ -104,7 +109,7 @@
         <div class="row justify-content-center mx-0">
             <span class="text-center m-4">ABOUT US</span>
             <p class="text-center mt-5">
-                Contact email :office2022@cs.ccu.edu.tw<br/>
+                Contact email：office2022@cs.ccu.edu.tw<br/>
                 Address : 621301 嘉義縣民雄鄉大學路168號
             </p>
         </div>
@@ -114,49 +119,11 @@
 <script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ url_for('static', filename = 'js/aos.js') }}"></script>
 <script src="{{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
 <script type="text/javascript">
     AOS.init();
 
-    var checkedCountry = [];
-
-    $("#linechartSearch").click(function() {
-        checkedCountry = [];
-        $("input[type='checkbox']").each(function(){
-            if($(this).prop("checked")){
-                var name = $(this).attr('id');
-                checkedCountry.push(name);
-            }
-        })
-        var json_country = JSON.stringify(checkedCountry);
-        console.log(json_country);
-        // json_country.find((obj)=>obj.name=='json').value="true"
-        // var datas = $("form").serializeArray()
-
-        $.ajax({
-            type: "POST",
-            url: "/create_2d_plot",
-            data: json_country,
-            contentType: "application/json",
-            processData: false,
-            dataType: "json",
-            success: function(data){
-                console.log(data);
-                $("#linechart").attr("src", "/static/img/2d_plot.png?timestamp=" + new Date().getTime());
-            }
-        });
-    });
-
-    $(window).scroll(function() {
-        var scrollTop = $(window).scrollTop();
-        if(scrollTop > $(".top_bar").offset().top || scrollTop > $(".top_bar").offset().top){
-            $(".top_bar").css({"visibility":"hidden"});
-            $(".top_bar_fixed").css({"visibility":"visible"});
-        }else{
-            $(".top_bar").css({"visibility":"visible"});
-            $(".top_bar_fixed").css({"visibility":"hidden"});
-        }
-    });
-    </script>
+</script>
 
 </body>
 </html>

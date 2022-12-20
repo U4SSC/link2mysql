@@ -40,15 +40,63 @@ def create_2d_plot():
 
 @app.route('/circle_world_plot_2014')
 def circle_world_plot_2014():
-    return render_template('circle_world_plot_2014.html')
+    return render_template('/plot/circle_world_plot_2014.html')
 
 @app.route('/flat_world_plot_2014')
 def flat_world_plot_2014():
-    return render_template('flat_world_plot_2014.html')
+    return render_template('/plot/flat_world_plot_2014.html')
 
 @app.route('/scatter_plot_2014')
 def scatter_plot_2014():
-    return render_template('scatter_plot_2014.html')
+    return render_template('/plot/scatter_plot_2014.html')
+
+@app.route('/circle_world_plot_2013')
+def circle_world_plot_2013():
+    return render_template('/plot/circle_world_plot_2013.html')
+
+@app.route('/flat_world_plot_2013')
+def flat_world_plot_2013():
+    return render_template('/plot/flat_world_plot_2013.html')
+
+@app.route('/scatter_plot_2013')
+def scatter_plot_2013():
+    return render_template('/plot/scatter_plot_2013.html')
+
+@app.route('/circle_world_plot_2012')
+def circle_world_plot_2012():
+    return render_template('/plot/circle_world_plot_2012.html')
+
+@app.route('/flat_world_plot_2012')
+def flat_world_plot_2012():
+    return render_template('/plot/flat_world_plot_2012.html')
+
+@app.route('/scatter_plot_2012')
+def scatter_plot_2012():
+    return render_template('/plot/scatter_plot_2012.html')
+
+@app.route('/circle_world_plot_2011')
+def circle_world_plot_2011():
+    return render_template('/plot/circle_world_plot_2011.html')
+
+@app.route('/flat_world_plot_2011')
+def flat_world_plot_2011():
+    return render_template('/plot/flat_world_plot_2011.html')
+
+@app.route('/scatter_plot_2011')
+def scatter_plot_2011():
+    return render_template('/plot/scatter_plot_2011.html')
+
+@app.route('/circle_world_plot_2010')
+def circle_world_plot_2010():
+    return render_template('/plot/circle_world_plot_2010.html')
+
+@app.route('/flat_world_plot_2010')
+def flat_world_plot_2010():
+    return render_template('/plot/flat_world_plot_2010.html')
+
+@app.route('/scatter_plot_2010')
+def scatter_plot_2010():
+    return render_template('/plot/scatter_plot_2010.html')
 
 @app.route("/KPI_1")
 def showDB():
