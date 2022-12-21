@@ -80,6 +80,7 @@ border-width: 5px;
   margin-top:50px;
   position:relative;
   outline:0;
+  font-size: 32px;
 }
 
 .login.buttonafter {

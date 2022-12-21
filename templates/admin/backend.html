@@ -10,9 +10,19 @@
     <div class='wrap'>
         upload
     <div class="login">
-        <form action="addfile" method="POST" class="login">
-            <button  >上傳</button>
-            <button type="logout" >登出</button>
+         <!-- <form action="addfile" method="POST" class="login">
+            <button>上傳</button>
+        </form>  -->
+        <form action="upload" method="POST" enctype="multipart/form-data" > 
+        
+            <!-- style="border:1px solid black;" -->
+            <div class="input-group mb-3" >
+                <input type="file" name="upload_file" class="form-control" id="inp-add-1" style="float:left;">
+                <button type="submit">上傳</button>
+            </div>
+        </form>
+        <form action="/logout"  class="login">
+            <button type="logout">登出</button>
         </form>
     </div>
     </div>

@@ -141,6 +141,7 @@ def addfile():
     # ==================
     return redirect("/")
 
+
 @app.route("/reference")
 def reference_page():
     return render_template("reference.html")
@@ -160,7 +161,7 @@ def upload():
         dbconnect.insert_data(  data  )
 
         #os.unlink( savepath )
-        return redirect("/admin/addfile")
+        return redirect("/admin/backend")
     return redirect("/")
 #==========================================
 
