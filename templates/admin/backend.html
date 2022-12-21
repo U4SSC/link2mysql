@@ -8,17 +8,15 @@
 
 <body>
     <div class='wrap'>
-        upload
+        後端管理頁面
     <div class="login">
          <!-- <form action="addfile" method="POST" class="login">
             <button>上傳</button>
         </form>  -->
-        <form action="upload" method="POST" enctype="multipart/form-data" > 
-        
-            <!-- style="border:1px solid black;" -->
-            <div class="input-group mb-3" >
-                <input type="file" name="upload_file" class="form-control" id="inp-add-1" style="float:left;">
-                <button type="submit">上傳</button>
+        <form action="upload" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="file" name="upload_file" class="form-control" id="inp-add-1">
+                <button type="submit" style="font-size: 26px; vertical-align: middle; margin: 0;">上傳</button>
             </div>
         </form>
         <form action="/logout"  class="login">
