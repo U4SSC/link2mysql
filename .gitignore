@@ -2,5 +2,4 @@ config.py
 __pycache__
 *test*
 csvupload/
-static/img/
-
+country_list.json
