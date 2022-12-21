@@ -60,24 +60,96 @@
                 data-aos-easing="ease-in-out">
                 <img src="{{ url_for('static', filename = 'img/scatter.png') }}" alt="scatter">
             </div>
-            <div id="circle_world_img" class="">
-                <iframe src="/circle_world_plot_2014" class=""></iframe>
-                <div class="intro p-5">
-                    文字文字文字文字文字文字文字文字
+
+            <div id="circle_world_img" class="p-0">
+                <div class="slides_container">
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/circle_world_plot_2014.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/circle_world_plot_2013.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/circle_world_plot_2012.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/circle_world_plot_2011.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/circle_world_plot_2010.html') }}"></iframe>
+                    </div>
+                    <div class="dots_list text-center">
+                        <span class="dot dot_1"></span>
+                        <span class="dot dot_2"></span>
+                        <span class="dot dot_3"></span>
+                        <span class="dot dot_4"></span>
+                        <span class="dot dot_5"></span>
+                    </div>
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
                 </div>
             </div>
-            
-            <div id="flat_world_img" class="">
-                <iframe src="/flat_world_plot_2014"></iframe>
+            <div id="flat_world_img" class="p-0">
+                <div class="slides_container">
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/flat_world_plot_2014.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/flat_world_plot_2013.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/flat_world_plot_2012.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/flat_world_plot_2011.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/flat_world_plot_2010.html') }}"></iframe>
+                    </div>
+                    <div class="dots_list text-center">
+                        <span class="dot dot_1"></span>
+                        <span class="dot dot_2"></span>
+                        <span class="dot dot_3"></span>
+                        <span class="dot dot_4"></span>
+                        <span class="dot dot_5"></span>
+                    </div>
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                </div>
             </div>
-            <div id="scatter_world_img" class="">
-                <iframe src="/scatter_plot_2014"></iframe>
+            <div id="scatter_world_img" class="p-0">
+                <div class="slides_container">
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/scatter_plot_2014.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/scatter_plot_2013.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/scatter_plot_2012.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/scatter_plot_2011.html') }}"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="{{ url_for('static', filename = 'plot/scatter_plot_2010.html') }}"></iframe>
+                    </div>
+                    <div class="dots_list text-center">
+                        <span class="dot dot_1"></span>
+                        <span class="dot dot_2"></span>
+                        <span class="dot dot_3"></span>
+                        <span class="dot dot_4"></span>
+                        <span class="dot dot_5"></span>
+                    </div>
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<h4 class="text-center">Please choose countrys to make line chart.</h4>
+<h4 class="text-center">Please choose countries to make line chart.</h4>
 <div class="container my-5">
     <div class="row justify-content-center align-item-center mx-0">
         <div id="country_checkbox" class="col-6 shadow-lg row justify-content-between p-5 mx-0">
