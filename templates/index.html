@@ -193,8 +193,9 @@
 <script src="{{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
 <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
 <script type="text/javascript">
-    AOS.init();
-
+    $(document).ready(function(){
+        AOS.init();
+    });
 </script>
 
 </body>
