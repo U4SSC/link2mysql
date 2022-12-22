@@ -58,6 +58,8 @@ def checkAuth():
         username = request.form['username']
         password = request.form['password']
         row = dbconnect.find_user(username)
+        if(row == False):
+            return redirect("/login")
         if row["password"] == hashlib.sha512(str(password).encode("utf-8")).hexdigest():
             session["username"] = username
             return redirect("/admin/backend")
