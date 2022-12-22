@@ -21,8 +21,9 @@ def select_all(tablename:str):
 def find_user(username:str):
     with conn.cursor() as cursor:
         sql = "SELECT * FROM `user` WHERE `username` = %s"
-        cursor.execute(sql, username)
-        return cursor.fetchone()
+        if cursor.execute(sql, username) == 1:
+            return cursor.fetchone()
+        return False
 
 def insert_data(arr):
     with conn.cursor() as cursor:
