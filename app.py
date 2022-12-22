@@ -102,6 +102,10 @@ def upload():
         dbconnect.insert_data(  data  )
 
         #os.unlink( savepath )
+
+        # update html
+        os.system("python generator.py")
+        
         return redirect("/admin/backend")
     return redirect("/")
 #==========================================
