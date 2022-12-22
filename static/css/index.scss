@@ -147,27 +147,25 @@
         top: 0;
         width: 100%;
         height: 100%;
-        // background: radial-gradient(
-        //   circle at center top,
-        //   #e78e2f,
-        //     rgba(238, 221, 255, 0.3) 60%,
-        //     rgba(33, 33, 33,1.0) 80%,
-        // );
+        background: radial-gradient(
+          circle at center top,
+          #e78e2f,
+            rgba(238, 221, 255, 0.3) 60%,
+            rgba(33, 33, 33,1.0) 80%,
+        );
         z-index: 2;
         transform: translate3d(0, 0, 0);
     }
 }
 .dusk {
     background: #fbb56a;
-    width: 60vw;
-    height: 60vmax;
+    width: 120vw;
+    height: 120vmax;
     border-radius: 42%;
     opacity: 0.4;
     position: absolute;
-    top: -70%;
-    left: -5%;
-    // margin-left: -250px;
-    // margin-top: -250px;
+    top: -190%;
+    left: 0%;
     transform-origin: center;
     animation: drift 7s infinite linear;
 }
@@ -180,8 +178,6 @@
     position: absolute;
     bottom: -190%;
     left: 0%;
-    // margin-left: -250px;
-    // margin-top: -250px;
     transform-origin: center;
     animation: drift 7s infinite linear;
 }
