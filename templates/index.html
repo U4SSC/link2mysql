@@ -11,10 +11,11 @@
 <title>永續指標分析與呈現</title>
 
 </head>
-<body>
+<body style="overflow: hidden;">
 
 <div class="top_bar px-auto">
     <a href="#top">Top</a>
+    <a href="#article">Introduction</a>
     <a href="#KPI">KPI</a>
     <a href="#aboutus">About us</a>
 </div>
@@ -36,25 +37,59 @@
         </div>
     </div>
 </div>
+
+<div id="article">
+    <div class="container">
+        <div class="row justify-content-around align-item-center">
+            <h3 class="text-center fw-bold py-3 mt-5">論失業率與永續發展目標之關聯</h3>
+            <div class="out_par">
+                <p>
+                    <a href="{{ url_for('static', filename = 'img/article_1.png') }}" target="_blank">
+                        <img src="{{ url_for('static', filename = 'img/article_1.png') }}" alt="article image">
+                    </a>
+                    &emsp;&emsp;根據世界失業率比例分布圖可以得知在2010~2014區間歐洲部分國家其中以西班牙、義大利、以及希臘為首的三大南歐國家，
+                    因為受到歐債危機的影響造成在2010~2014區間失業率居於歐洲地區之冠。
+                    此外，我們還可發現鄰近南歐的部分國家因為地緣關係接近也紛紛遭受波及。
+                    而除了歐洲地區國家，北非國家利比(Libya)因為遭受政經局勢不穩等因素，也使得失業率大增，
+                    有超過一半的勞動人口人找不到工作。同時，南非地區國家以南非(South Africa)為首因為曾經實行種族隔離隔離政策，
+                    即使該政策早已取消多年，然傷口難以撫平，多元的種族鬥爭也使的南非仍然面臨著相對較高的失業率。
+                    <br/><br/>
+                    &emsp;&emsp;根據聯合國永續發展目標（Sustainable Development Goals, SDGs），
+                    其中的第十一項目標是「建構具有包容、安全、韌性及永續特質的城市與鄉村」。<br/><br/><br/>
+                    <a href="{{ url_for('static', filename = 'img/article_3.png') }}" target="_blank">
+                        <img src="{{ url_for('static', filename = 'img/article_3.png') }}" alt="article image">
+                    </a>
+                    &emsp;&emsp;模範永續發展國家-冰島即符合SDG11描述特質(具有永續特質的城市暨整合包容與韌性的案例)<br/><br/>
+                    &emsp;&emsp;根據失業率淨變化圖，可得知冰島失業率自2010~2014年間呈負成長，亦即冰島勞動人口年年增長。
+                    根據BBC報導冰島實施周休三日實驗計畫，希望藉由「支付相同薪水但工時縮短至一周4天」的情況檢視工作效率會出現何種變化。
+                    研究結果顯示「大獲成功」，在工時縮短的情況下，工人的生產力保持不變抑或甚至有所提高。
+                    上述案例中，強調了縮短工作的週期，告訴我們，在現代不僅可以減少工作量，而且還能提升工作產能，
+                    此為冰島能成為符合(SDG11)國家永續發展的指標典範的原因之一。<br/><br/>
+                    <!-- <img src="{{ url_for('static', filename = 'img/article_2.jpg') }}" alt="article image"><br/> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="KPI">
-    <div class="container my-5">
+    <div class="container py-3">
         <div class="row justify-content-around align-item-center">
             <div id="circle_world" class="col-4 icon_for_graph" data-aos="fade-down"
-                data-aos-offset="150"
+                data-aos-offset="50"
                 data-aos-delay="50"
                 data-aos-duration="800"
                 data-aos-easing="ease-in-out">
                 <img src="{{ url_for('static', filename = 'img/earth.png') }}" alt="earth">
             </div>
             <div id="flat_world" class="col-4 icon_for_graph" data-aos="fade-down"
-                data-aos-offset="150"
+                data-aos-offset="50"
                 data-aos-delay="150"
                 data-aos-duration="800"
                 data-aos-easing="ease-in-out">
                 <img src="{{ url_for('static', filename = 'img/map.png') }}" alt="map">
             </div>
             <div id="scatter_world" class="col-4 icon_for_graph" data-aos="fade-down"
-                data-aos-offset="150"
+                data-aos-offset="50"
                 data-aos-delay="250"
                 data-aos-duration="800"
                 data-aos-easing="ease-in-out">
@@ -146,30 +181,27 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-<h4 class="text-center">Please choose countries to make line chart.</h4>
-<div class="container my-5">
-    <div class="row justify-content-center align-item-center mx-0">
-        <div id="country_checkbox" class="col-6 shadow-lg row justify-content-between p-5 mx-0">
-            {% for name in country %}
-            <div class="col-6 form-check">
-                <input class="form-check-input" type="checkbox" name="country" id="{{ name }}">
-                <label class="form-check-label" for="{{ name }}">
-                    {{ name }}
-                </label>
+        <h4 class="text-center">Please choose countries to make line chart.</h4>
+        <div class="row justify-content-center align-item-center mx-0">
+            <div id="country_checkbox" class="col-6 shadow-lg row justify-content-between p-5 mx-0">
+                {% for name in country %}
+                <div class="col-6 form-check">
+                    <input class="form-check-input" type="checkbox" name="country" id="{{ name }}">
+                    <label class="form-check-label" for="{{ name }}">
+                        {{ name }}
+                    </label>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+            <div class="col-6 text-center">
+                <img id="linechart" src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 100%;" class="shadow-lg">
+            </div>
+            <div class="col-6 text-center">
+                <button type="submit" class="col-2 btn btn-primary mt-4 mx-2" id="linechartSearch">submit</button>
+                <button type="button" class="col-2 btn btn-danger mt-4 mx-2" id="linechartClear">Clear</button>
+            </div>
+            <div class="col-6"></div>
         </div>
-        <div class="col-6 text-center">
-            <img id="linechart" src="{{ url_for('static', filename = 'img/2d_plot.png') }}" alt="line chart" style="height: 100%;" class="shadow-lg">
-        </div>
-        <div class="col-6 text-center">
-            <button type="submit" class="col-2 btn btn-primary mt-4 mx-2" id="linechartSearch">submit</button>
-            <button type="button" class="col-2 btn btn-danger mt-4 mx-2" id="linechartClear">Clear</button>
-        </div>
-        <div class="col-6"></div>
     </div>
 </div>
 
@@ -179,8 +211,9 @@
     <div class="dusk three"></div>
     <div id="info" class="container-fluid">
         <div class="row justify-content-center mx-0">
-            <span class="text-center m-4">ABOUT US</span>
-            <p class="text-center mt-5">
+            <span class="text-center my-4">ABOUT US</span>
+                <a href="/reference" class="my-4">REFERENCE</a></br>
+            <p class="text-center">
                 Contact email：office2022@cs.ccu.edu.tw<br/>
                 Address : 621301 嘉義縣民雄鄉大學路168號
             </p>

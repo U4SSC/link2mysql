@@ -1,9 +1,10 @@
 $(document).ready(function(){
     $(window).scroll(function() {
         var scrollTop = $(window).scrollTop();
-        if(scrollTop > $("#aboutus").offset().top-10 || scrollTop > $("#aboutus").offset().top-10){
-            $(".top_bar").css({"visibility":"hidden"});
-        }else if(scrollTop > $("#KPI").offset().top || scrollTop > $("#KPI").offset().top){
+        // if(scrollTop > $("#aboutus").offset().top-10 || scrollTop > $("#aboutus").offset().top-10){
+        //     $(".top_bar").css({"visibility":"hidden"});
+        // }else 
+        if(scrollTop > $("#KPI").offset().top || scrollTop > $("#KPI").offset().top){
             $(".top_bar").addClass("top_bar_toggle");
             $(".top_bar").css({"visibility":"visible"});
         }else{
