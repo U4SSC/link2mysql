@@ -4,5 +4,5 @@
 3.將upload/soft_engr.sql上傳至xampp的資料庫中，資料庫要自己先創好同名的<br/>
 4.使用py app.py就可以開始執行<br/>
 ## 其他資訊
-[Demo 影片](https://drive.google.com/file/d/1gq8izXdwXk5vcbjTHCMPkwZV3CmLbcxu/view) </br>
+[Demo 影片](https://youtu.be/9rz0OyYYkJA) </br>
 [本專案網址](https://github.com/U4SSC/link2mysql/) </br>
